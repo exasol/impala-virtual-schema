@@ -32,7 +32,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class ImpalaSqlDialectTest {
-    private SqlDialect dialect;
+    private ImpalaSqlDialect dialect;
     private Map<String, String> rawProperties;
 
     @BeforeEach

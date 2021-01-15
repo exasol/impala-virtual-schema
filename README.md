@@ -24,14 +24,14 @@ If you want to set up a Virtual Schema for a different database system, please h
 
 ## Features
 
-* Access a Big Query data source in read only mode from an Exasol database, using a Virtual Schema.
+* Access an Impala data source in read only mode from an Exasol database, using a Virtual Schema.
 
 ## Table of Contents
 
 ### Information for Users
 
 * [Virtual Schemas User Guide][virtual-schemas-user-guide]
-* [Big Query Dialect User Guide](doc/user_guide/impala_user_guide.md)
+* [Impala Dialect User Guide](doc/user_guide/impala_user_guide.md)
 * [Changelog](doc/changes/changelog.md)
 
 Find all the documentation in the [Virtual Schemas project][vs-doc].
