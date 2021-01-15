@@ -1,10 +1,10 @@
-# Impala Virtual Schemas 1.0.0, released 2021-01-??
+# Impala Virtual Schemas 1.0.0, released 2021-01-15
 
 Code name: Migration from the virtual-schemas repository
 
 ## Features
 
-* #1: Migrated from the virtual-schemas repository
+* #2: Migrated from the virtual-schemas repository
 
 ## Runtime Dependencies
 
