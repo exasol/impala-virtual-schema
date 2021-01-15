@@ -10,6 +10,7 @@ Code name: Migration from the virtual-schemas repository
 
 * Added `com.exasol:virtual-schema-common-jdbc:8.0.0`
 * Added `com.exasol:error-reporting-java:0.2.0`
+* Added `com.exasol:db-fundamentals-java:0.1.1`
 
 ## Test Dependencies
 

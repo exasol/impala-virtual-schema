@@ -51,6 +51,7 @@ Running the Virtual Schema requires a Java Runtime version 11 or later.
 |--------------------------------------------------------------------|--------------------------------------------------------|-----------------------------------|
 | [Exasol Virtual Schema JDBC][virtual-schema-common-jdbc]           | Common JDBC functions for Virtual Schemas adapters     | MIT License                       |
 | [Impala JDBC driver][impala-jdbc-driver]                           | JDBC driver for connection to the data source          | Cloudera License                  |
+| [Exasol Database Fundamentals for Java][exasol-db-funtamentals]    | Base objects and ground rules for the Exasol database  | MIT License                       |
 
 ### Test Dependencies
 
@@ -60,6 +61,7 @@ Running the Virtual Schema requires a Java Runtime version 11 or later.
 | [JUnit](https://junit.org/junit5)                                  | Unit testing framework                                 | Eclipse Public License 1.0    |
 | [Mockito](http://site.mockito.org/)                                | Mocking framework                                      | MIT License                   |
 | [Exasol Hamcrest Result Set Matcher][exasol-hamcrest]              | Hamcrest result set matcher for testing                | MIT License                   |
+| [EqualsVerifier][jqno-equals-verifier]                             | Testing `hashCode` and `equals` Java contract        | Apache-2.0 License            |
 
 ### Maven Plug-ins
 
@@ -78,8 +80,10 @@ Running the Virtual Schema requires a Java Runtime version 11 or later.
 
 [virtual-schema-common-jdbc]: https://github.com/exasol/virtual-schema-common-jdbc
 [impala-jdbc-driver]: https://www.cloudera.com/downloads/connectors/impala/jdbc/2-6-4.html
+[exasol-db-funtamentals]: https://github.com/exasol/db-fundamentals-java/
 
 [exasol-hamcrest]: https://github.com/exasol/hamcrest-resultset-matcher
+[jqno-equals-verifier]: https://github.com/jqno/equalsverifier
 
 [maven-jacoco-plugin]: https://www.eclemma.org/jacoco/trunk/doc/maven.html
 [maven-surefire-plugin]: https://maven.apache.org/surefire/maven-surefire-plugin/
