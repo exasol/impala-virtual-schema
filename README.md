@@ -33,6 +33,7 @@ If you want to set up a Virtual Schema for a different database system, please h
 * [Virtual Schemas User Guide][virtual-schemas-user-guide]
 * [Impala Dialect User Guide](doc/user_guide/impala_user_guide.md)
 * [Changelog](doc/changes/changelog.md)
+* [Virtual Schema FAQ](https://github.com/exasol/virtual-schemas/blob/main/doc/user-guide/faq.md)
 
 Find all the documentation in the [Virtual Schemas project][vs-doc].
 
