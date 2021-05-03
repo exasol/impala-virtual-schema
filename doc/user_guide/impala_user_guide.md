@@ -25,7 +25,7 @@ You need to specify the following settings when adding the JDBC driver via EXAOp
 | Prefix    | `jdbc:impala:`                                          |
 | Files     | `ImpalaJDBC41.jar`                                      |
 
-IMPORTANT: Currently you have to Disable Security Manager for the driver if you want to connect to Impala using Virtual Schemas. It is necessary because JDBC driver requires Java permissions which we do not grant by default.
+IMPORTANT: Currently you have to [Disable Security Manager](https://docs.exasol.com/administration/on-premise/manage_software/manage_jdbc.htm) for the driver if you want to connect to Impala using Virtual Schemas. It is necessary because JDBC driver requires Java permissions which we do not grant by default.
 
 ## Uploading the JDBC Driver to BucketFS
 
@@ -160,7 +160,7 @@ TIMESTAMP          |  ✓        | TIMESTAMP                 |
 TINYINT            |  ✓        | DECIMAL(3,0)              |
 VARCHAR            |  ✓        | VARCHAR                   |
 
-## Testing information
+## Testing Information
 
 In the following matrix you find combinations of JDBC driver and dialect version that we tested.
 
