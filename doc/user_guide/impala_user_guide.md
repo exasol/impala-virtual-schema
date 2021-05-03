@@ -4,7 +4,7 @@
 
 ## Registering the JDBC Driver in EXAOperation
 
-First download the [Impala JDBC driver](https://www.cloudera.com/downloads/connectors/impala/jdbc/2-6-4.html).
+First download the [Impala JDBC driver](https://www.cloudera.com/downloads/connectors/impala/jdbc/2-6-23.html).
 
 Now register the driver in EXAOperation:
 
@@ -25,7 +25,9 @@ You need to specify the following settings when adding the JDBC driver via EXAOp
 | Prefix    | `jdbc:impala:`                                          |
 | Files     | `ImpalaJDBC41.jar`                                      |
 
-## Uploading the JDBC Driver to EXAOperation
+IMPORTANT: Currently you have to [Disable Security Manager](https://docs.exasol.com/administration/on-premise/manage_software/manage_jdbc.htm) for the driver if you want to connect to Impala using Virtual Schemas. It is necessary because JDBC driver requires Java permissions which we do not grant by default.
+
+## Uploading the JDBC Driver to BucketFS
 
 1. [Create a bucket in BucketFS](https://docs.exasol.com/administration/on-premise/bucketfs/create_new_bucket_in_bucketfs_service.htm)
 1. Upload the driver to BucketFS
@@ -134,3 +136,34 @@ CREATE VIRTUAL SCHEMA <virtual schema name>
    CONNECTION_NAME = 'KRB_CONN'
    SCHEMA_NAME     = '<schema name>';
 ```
+
+
+## Data Types Conversion
+
+Impala Data Type   | Supported | Converted Exasol Data Type| Known limitations
+-------------------|-----------|---------------------------|-------------------
+ARRAY              |  ×        |                           |
+BIGINT             |  ✓        | DECIMAL(19,0)             |
+BOOLEAN            |  ✓        | BOOLEAN                   |
+CHAR               |  ✓        | CHAR                      |
+DATE               |  ✓        | DATE                      |
+DECIMAL            |  ✓        | DECIMAL                   |
+DOUBLE             |  ✓        | DOUBLE PRECISION          |
+FLOAT              |  ✓        | DOUBLE PRECISION          |
+INT                |  ✓        | DECIMAL(10,0)             |
+MAP                |  ×        |                           |
+REAL               |  ✓        | DOUBLE PRECISION          |
+SMALLINT           |  ✓        | DECIMAL(3,0)              |
+STRING             |  ✓        | VARCHAR                   |
+STRUCT             |  ×        |                           |
+TIMESTAMP          |  ✓        | TIMESTAMP                 |
+TINYINT            |  ✓        | DECIMAL(3,0)              |
+VARCHAR            |  ✓        | VARCHAR                   |
+
+## Testing Information
+
+In the following matrix you find combinations of JDBC driver and dialect version that we tested.
+
+| Virtual Schema Version | Impala Version | Driver Name      | Driver Version |
+|------------------------|----------------|------------------|----------------|
+| 1.0.0                  | 3.4.0          | ImpalaJDBC41.jar | 2.6.20.1024    |
