@@ -164,6 +164,6 @@ VARCHAR            |  ✓        | VARCHAR                   |
 
 In the following matrix you find combinations of JDBC driver and dialect version that we tested.
 
-| Virtual Schema Version | Impala Version | Driver Name     | Driver Version |
-|------------------------|---------------|------------------|----------------|
-| 1.0.0                  | 3.4.0         | ImpalaJDBC41.jar | 2.6.20.1024    |
+| Virtual Schema Version | Impala Version | Driver Name      | Driver Version |
+|------------------------|----------------|------------------|----------------|
+| 1.0.0                  | 3.4.0          | ImpalaJDBC41.jar | 2.6.20.1024    |
