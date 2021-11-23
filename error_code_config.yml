@@ -1,0 +1,4 @@
+error-tags:
+  VS-IMPALA:
+    packages:
+      - com.exasol.adapter.dialects.impala

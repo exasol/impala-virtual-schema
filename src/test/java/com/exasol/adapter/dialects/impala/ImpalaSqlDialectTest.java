@@ -166,11 +166,10 @@ class ImpalaSqlDialectTest {
 
     @Test
     void testGetSqlGenerationVisitor() {
-        assertThat(this.dialect.getSqlGenerationVisitor(null), instanceOf(ImpalaSqlGenerationVisitor.class));
+        assertThat(this.dialect.getSqlGenerator(null), instanceOf(ImpalaSqlGenerationVisitor.class));
     }
 
     private void setMandatoryProperties() {
-        this.rawProperties.put(AdapterProperties.SQL_DIALECT_PROPERTY, "IMPALA");
         this.rawProperties.put(AdapterProperties.CONNECTION_NAME_PROPERTY, "MY_CONN");
     }
 }
