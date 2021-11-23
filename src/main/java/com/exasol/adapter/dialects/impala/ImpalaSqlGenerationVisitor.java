@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.exasol.adapter.AdapterException;
-import com.exasol.adapter.dialects.*;
+import com.exasol.adapter.dialects.SqlDialect;
+import com.exasol.adapter.dialects.rewriting.SqlGenerationContext;
+import com.exasol.adapter.dialects.rewriting.SqlGenerationVisitor;
 import com.exasol.adapter.sql.*;
 
 /**
