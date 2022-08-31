@@ -1,4 +1,5 @@
 error-tags:
-  VS-IMPALA:
+  VSIMPALA:
     packages:
       - com.exasol.adapter.dialects.impala
+    highest-index: 1
