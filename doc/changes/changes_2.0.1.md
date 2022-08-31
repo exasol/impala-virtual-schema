@@ -15,14 +15,14 @@ In this release we updated dependencies to their latest version.
 ### Compile Dependency Updates
 
 * Updated `com.exasol:db-fundamentals-java:0.1.1` to `0.1.2`
-* Updated `com.exasol:virtual-schema-common-jdbc:8.0.0` to `9.0.4`
+* Updated `com.exasol:virtual-schema-common-jdbc:8.0.0` to `9.0.5`
 
 ### Test Dependency Updates
 
-* Updated `com.exasol:virtual-schema-common-jdbc:8.0.0` to `9.0.4`
-* Updated `nl.jqno.equalsverifier:equalsverifier:3.5` to `3.7.2`
-* Updated `org.junit.jupiter:junit-jupiter:5.7.0` to `5.8.1`
-* Updated `org.mockito:mockito-junit-jupiter:3.6.0` to `4.1.0`
+* Updated `com.exasol:virtual-schema-common-jdbc:8.0.0` to `9.0.5`
+* Updated `nl.jqno.equalsverifier:equalsverifier:3.5` to `3.10.1`
+* Updated `org.junit.jupiter:junit-jupiter:5.7.0` to `5.9.0`
+* Updated `org.mockito:mockito-junit-jupiter:3.6.0` to `4.7.0`
 
 ### Plugin Dependency Updates
 
