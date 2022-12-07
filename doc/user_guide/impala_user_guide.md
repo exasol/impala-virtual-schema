@@ -194,6 +194,8 @@ TO 'jdbc:impala://<Impala host>:<port>;AuthMech=1;KrbAuthType=1;KrbRealm=EXAMPLE
 
 This will create log files in the database `/tmp/` folder. Please check the `exasol_container_sockets` folder for `ImpalaJDBC_driver.log` and `ImpalaJDBC_connection_*.log` files during the Virtual Schema creation or query run. These files will contain exception logs if there is any.
 
+You can set the `LogLevel` to number from `0` (Disables all logging) to `6` (Logs all driver activity). For more information please checkout the [Cloudera Impala JDBC Manual](https://docs.cloudera.com/documentation/other/connectors/impala-jdbc/latest/Cloudera-JDBC-Driver-for-Impala-Install-Guide.pdf) section on "Configuring Logging".
+
 ## Data Types Conversion
 
 Impala Data Type   | Supported | Converted Exasol Data Type| Known limitations
