@@ -1,6 +1,6 @@
 # Impala SQL Dialect
 
-[Impala](https://www.cloudera.com/products/open-source/apache-hadoop/impala.html) is a MPP (Massive Parallel Processing) SQL query engine for processing data that is stored on a Hadoop cluster.
+[Impala](https://www.cloudera.com/products/open-source/apache-hadoop/impala.html) is an MPP (Massive Parallel Processing) SQL query engine for processing data that is stored on a Hadoop cluster.
 
 ## Registering the JDBC Driver in EXAOperation
 
@@ -192,7 +192,7 @@ For example:
 TO 'jdbc:impala://<Impala host>:<port>;AuthMech=1;KrbAuthType=1;KrbRealm=EXAMPLE.COM;KrbHostFQDN=_HOST;KrbServiceName=impala;transportMode=http;httpPath=cliservice;LogLevel=6;LogPath=/tmp/'
 ```
 
-This will create log files in the database `/tmp/` folder. Please check the `exasol_container_sockets` folder for `ImpalaJDBC_driver.log` and `ImpalaJDBC_connection_*.log` files during the Virtual Schema creation or query run. These files will contain exception logs if there is any.
+This will create log files in a sandbox `/tmp/` folder. Please check the `exasol_container_sockets` folder for `ImpalaJDBC_driver.log` and `ImpalaJDBC_connection_*.log` files during the Virtual Schema creation or query run. These files will contain exception logs if there is any.
 
 You can set the `LogLevel` to number from `0` (Disables all logging) to `6` (Logs all driver activity). For more information please checkout the [Cloudera Impala JDBC Manual](https://docs.cloudera.com/documentation/other/connectors/impala-jdbc/latest/Cloudera-JDBC-Driver-for-Impala-Install-Guide.pdf) section on "Configuring Logging".
 
