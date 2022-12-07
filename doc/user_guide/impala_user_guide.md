@@ -192,7 +192,7 @@ For example:
 TO 'jdbc:impala://<Impala host>:<port>;AuthMech=1;KrbAuthType=1;KrbRealm=EXAMPLE.COM;KrbHostFQDN=_HOST;KrbServiceName=impala;transportMode=http;httpPath=cliservice;LogLevel=6;LogPath=/tmp/'
 ```
 
-This will create log files in the database `/tmp/` folder. Please check the `exasol_container_sockets` folder during the Virtual Schema creation or query run.
+This will create log files in the database `/tmp/` folder. Please check the `exasol_container_sockets` folder for `ImpalaJDBC_driver.log` and `ImpalaJDBC_connection_*.log` files during the Virtual Schema creation or query run. These files will contain exception logs if there is any.
 
 ## Data Types Conversion
 
