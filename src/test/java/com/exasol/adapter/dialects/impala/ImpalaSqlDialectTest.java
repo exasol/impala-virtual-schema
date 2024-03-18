@@ -8,9 +8,9 @@ import static com.exasol.adapter.capabilities.MainCapability.*;
 import static com.exasol.adapter.capabilities.PredicateCapability.*;
 import static com.exasol.adapter.capabilities.ScalarFunctionCapability.*;
 import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -21,15 +21,15 @@ import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import com.exasol.adapter.AdapterProperties;
-import com.exasol.adapter.capabilities.Capabilities;
-import com.exasol.adapter.dialects.PropertyValidationException;
-import com.exasol.adapter.dialects.SqlDialect;
-import com.exasol.adapter.sql.ScalarFunction;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+
+import com.exasol.adapter.AdapterProperties;
+import com.exasol.adapter.capabilities.Capabilities;
+import com.exasol.adapter.dialects.SqlDialect;
+import com.exasol.adapter.properties.PropertyValidationException;
+import com.exasol.adapter.sql.ScalarFunction;
 
 class ImpalaSqlDialectTest {
     private ImpalaSqlDialect dialect;

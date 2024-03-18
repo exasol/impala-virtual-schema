@@ -1,6 +1,6 @@
 # Impala SQL Dialect
 
-[Impala](https://www.cloudera.com/products/open-source/apache-hadoop/impala.html) is an MPP (Massive Parallel Processing) SQL query engine for processing data that is stored on a Hadoop cluster.
+[Impala](https://docs.cloudera.com/cdw-runtime/cloud/impala-overview/topics/impala-overview.html) is an MPP (Massive Parallel Processing) SQL query engine for processing data that is stored on a Hadoop cluster.
 
 ## Registering the JDBC Driver in EXAOperation
 
@@ -55,7 +55,7 @@ The SQL statement below creates the adapter script, defines the Java class that 
 ```sql
 CREATE OR REPLACE JAVA ADAPTER SCRIPT ADAPTER.JDBC_ADAPTER AS
   %scriptclass com.exasol.adapter.RequestDispatcher;
-  %jar /buckets/<BFS service>/<bucket>/virtual-schema-dist-10.1.0-impala-2.0.0.jar;
+  %jar /buckets/<BFS service>/<bucket>/virtual-schema-dist-12.0.0-impala-2.0.1.jar;
   %jar /buckets/<BFS service>/<bucket>/ImpalaJDBC41.jar;
 /
 ;
