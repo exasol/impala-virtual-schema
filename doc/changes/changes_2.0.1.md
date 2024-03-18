@@ -6,7 +6,7 @@ Code name:
 
 ## Documentation
 
-* #18: Updated link to claudera impala page and dependencies
+* #18: Updated link to Cloudera Impala page and dependencies
 
 ## Dependency Updates
 
