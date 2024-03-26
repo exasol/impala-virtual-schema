@@ -55,7 +55,7 @@ The SQL statement below creates the adapter script, defines the Java class that 
 ```sql
 CREATE OR REPLACE JAVA ADAPTER SCRIPT ADAPTER.JDBC_ADAPTER AS
   %scriptclass com.exasol.adapter.RequestDispatcher;
-  %jar /buckets/<BFS service>/<bucket>/virtual-schema-dist-12.0.0-impala-2.0.1.jar;
+  %jar /buckets/<BFS service>/<bucket>/virtual-schema-dist-12.0.0-impala-3.0.0.jar;
   %jar /buckets/<BFS service>/<bucket>/ImpalaJDBC41.jar;
 /
 ;
