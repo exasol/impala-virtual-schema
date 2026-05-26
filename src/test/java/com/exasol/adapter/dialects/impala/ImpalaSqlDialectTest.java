@@ -13,7 +13,10 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.lenient;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,29 +24,59 @@ import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.exasol.ExaMetadata;
 import com.exasol.adapter.AdapterProperties;
 import com.exasol.adapter.capabilities.Capabilities;
 import com.exasol.adapter.dialects.JDBCAdapterContext;
 import com.exasol.adapter.dialects.SqlDialect;
+import com.exasol.adapter.dialects.rewriting.ImportIntoTemporaryTableQueryRewriter;
+import com.exasol.adapter.jdbc.ConnectionFactory;
 import com.exasol.adapter.properties.PropertyValidationException;
 import com.exasol.adapter.sql.ScalarFunction;
 
+@ExtendWith(MockitoExtension.class)
 class ImpalaSqlDialectTest {
     private ImpalaSqlDialect dialect;
     private Map<String, String> rawProperties;
+    @Mock
+    ConnectionFactory connectionFactoryMock;
+    @Mock
+    ExaMetadata exaMetadataMock;
+    @Mock
+    Connection connectionMock;
 
     @BeforeEach
-    void beforeEach() {
-        this.dialect = testee(AdapterProperties.emptyProperties());
+    void beforeEach() throws SQLException {
+        this.dialect = testee();
         this.rawProperties = new HashMap<>();
     }
 
-    ImpalaSqlDialect testee(final AdapterProperties properties) {
-        return new ImpalaSqlDialect(JDBCAdapterContext.builder().properties(properties).build());
+    ImpalaSqlDialect testee() throws SQLException {
+        return testee(AdapterProperties.emptyProperties());
+    }
+
+    ImpalaSqlDialect testee(final AdapterProperties properties) throws SQLException {
+        lenient().when(this.connectionFactoryMock.getConnection()).thenReturn(connectionMock);
+        lenient().when(this.exaMetadataMock.getDatabaseVersion()).thenReturn("8.34.0");
+        return new ImpalaSqlDialect(
+                JDBCAdapterContext.builder().connectionFactory(connectionFactoryMock).properties(properties).metadata(exaMetadataMock).build());
+    }
+
+    @Test
+    void testCreateRemoteMetadataReader() throws SQLException {
+        assertThat(testee().createRemoteMetadataReader(), instanceOf(ImpalaMetadataReader.class));
+    }
+
+    @Test
+    void testCreateQueryRewriter() throws SQLException {
+        assertThat(testee().createQueryRewriter(), instanceOf(ImportIntoTemporaryTableQueryRewriter.class));
     }
 
     @Test
@@ -109,7 +142,7 @@ class ImpalaSqlDialectTest {
     }
 
     @Test
-    void testValidateCatalogProperty() throws PropertyValidationException {
+    void testValidateCatalogProperty() throws PropertyValidationException, SQLException {
         setMandatoryProperties();
         this.rawProperties.put(CATALOG_NAME_PROPERTY, "MY_CATALOG");
         final AdapterProperties adapterProperties = new AdapterProperties(this.rawProperties);
@@ -118,7 +151,7 @@ class ImpalaSqlDialectTest {
     }
 
     @Test
-    void testValidateSchemaProperty() throws PropertyValidationException {
+    void testValidateSchemaProperty() throws PropertyValidationException, SQLException {
         setMandatoryProperties();
         this.rawProperties.put(SCHEMA_NAME_PROPERTY, "MY_SCHEMA");
         final AdapterProperties adapterProperties = new AdapterProperties(this.rawProperties);

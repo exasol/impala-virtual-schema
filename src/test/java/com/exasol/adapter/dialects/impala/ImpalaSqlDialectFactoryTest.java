@@ -28,4 +28,15 @@ class ImpalaSqlDialectFactoryTest {
         assertThat(this.factory.createSqlDialect(JDBCAdapterContext.builder().properties(AdapterProperties.emptyProperties()).build()),
                 instanceOf(ImpalaSqlDialect.class));
     }
+
+    @Test
+    void testGetSqlDialectVersion() {
+        // Only works when running from a built artifact
+        assertThat(this.factory.getSqlDialectVersion(), equalTo("UNKNOWN"));
+    }
+
+    @Test
+    void testGetAdapterProjectShortTag() {
+        assertThat(this.factory.getAdapterProjectShortTag(), equalTo("VSIMPALA"));
+    }
 }
