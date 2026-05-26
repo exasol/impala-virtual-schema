@@ -4,10 +4,7 @@ sources:
     modules:
       - jar_artifact
 build:
-  runnerOs: ubuntu-20.04
-  freeDiskSpace: false
+  runnerOs: ubuntu-24.04
   exasolDbVersions:
-    - "7.1.25"
-    - "8.24.0"
-excludes:
-linkReplacements:
+    - "2026.1.0"
+    - "2025.1.10"
