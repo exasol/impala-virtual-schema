@@ -8,3 +8,6 @@ build:
   exasolDbVersions:
     - "2026.1.0"
     - "2025.1.10"
+excludes:
+  # Workaround for plugin update mismatch in changes_4.0.0.md
+  - regex: "E-PK-CORE-40: Changes file is invalid.*"
