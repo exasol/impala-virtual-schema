@@ -18,9 +18,9 @@ Code name:
 ### Test Dependency Updates
 
 * Updated `com.exasol:virtual-schema-common-jdbc:12.0.0` to `14.0.2`
-* Updated `nl.jqno.equalsverifier:equalsverifier:3.15.8` to `4.5`
+* Updated `nl.jqno.equalsverifier:equalsverifier:3.15.8` to `3.19.4`
 * Updated `org.hamcrest:hamcrest:2.2` to `3.0`
-* Updated `org.junit.jupiter:junit-jupiter:5.10.2` to `6.1.0`
+* Updated `org.junit.jupiter:junit-jupiter:5.10.2` to `5.14.4`
 * Updated `org.mockito:mockito-junit-jupiter:5.11.0` to `5.23.0`
 
 ### Plugin Dependency Updates

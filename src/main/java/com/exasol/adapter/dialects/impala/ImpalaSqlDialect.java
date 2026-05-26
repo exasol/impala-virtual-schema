@@ -11,12 +11,12 @@ import static com.exasol.adapter.capabilities.ScalarFunctionCapability.*;
 import java.sql.SQLException;
 import java.util.*;
 
-import com.exasol.adapter.AdapterProperties;
 import com.exasol.adapter.capabilities.Capabilities;
 import com.exasol.adapter.dialects.*;
 import com.exasol.adapter.dialects.rewriting.ImportIntoTemporaryTableQueryRewriter;
 import com.exasol.adapter.dialects.rewriting.SqlGenerationContext;
-import com.exasol.adapter.jdbc.*;
+import com.exasol.adapter.jdbc.RemoteMetadataReader;
+import com.exasol.adapter.jdbc.RemoteMetadataReaderException;
 import com.exasol.adapter.sql.ScalarFunction;
 
 /**
@@ -51,11 +51,10 @@ public class ImpalaSqlDialect extends AbstractSqlDialect {
     /**
      * Create a new instance of the {@link ImpalaSqlDialect}.
      *
-     * @param connectionFactory factory for the JDBC connection to the remote data source
-     * @param properties        user-defined adapter properties
+     * @param context context for the JDBC adapter
      */
-    public ImpalaSqlDialect(final ConnectionFactory connectionFactory, final AdapterProperties properties) {
-        super(connectionFactory, properties, Set.of(CATALOG_NAME_PROPERTY, SCHEMA_NAME_PROPERTY));
+    public ImpalaSqlDialect(final JDBCAdapterContext context) {
+        super(context, Set.of(CATALOG_NAME_PROPERTY, SCHEMA_NAME_PROPERTY));
     }
 
     @Override
@@ -123,7 +122,7 @@ public class ImpalaSqlDialect extends AbstractSqlDialect {
     @Override
     protected RemoteMetadataReader createRemoteMetadataReader() {
         try {
-            return new ImpalaMetadataReader(this.connectionFactory.getConnection(), this.properties);
+            return new ImpalaMetadataReader(this.connectionFactory.getConnection(), this.properties, this.exaMetadata);
         } catch (final SQLException exception) {
             throw new RemoteMetadataReaderException(
                     "Unable to create Impala remote metadata reader. Caused by: " + exception.getMessage(), exception);
