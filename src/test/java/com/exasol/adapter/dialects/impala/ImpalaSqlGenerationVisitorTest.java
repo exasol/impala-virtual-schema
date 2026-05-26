@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import com.exasol.adapter.AdapterException;
 import com.exasol.adapter.AdapterProperties;
+import com.exasol.adapter.dialects.JDBCAdapterContext;
 import com.exasol.adapter.dialects.SqlDialect;
 import com.exasol.adapter.dialects.rewriting.SqlGenerationContext;
 import com.exasol.adapter.sql.SqlFunctionAggregateGroupConcat;
@@ -18,8 +19,8 @@ class ImpalaSqlGenerationVisitorTest {
 
     @BeforeEach
     void beforeEach() {
-        final SqlDialect dialect = new ImpalaSqlDialectFactory().createSqlDialect(null,
-                AdapterProperties.emptyProperties());
+        final SqlDialect dialect = new ImpalaSqlDialectFactory()
+                .createSqlDialect(JDBCAdapterContext.builder().properties(AdapterProperties.emptyProperties()).build());
         final SqlGenerationContext context = new SqlGenerationContext("test_catalog", "test_schema", false);
         this.visitor = new ImpalaSqlGenerationVisitor(dialect, context);
     }
